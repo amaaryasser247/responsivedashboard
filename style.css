@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +9,7 @@ body {
   background: #f4f6f9;
   color: #333;
   transition: background 0.3s, color 0.3s;
+  animation: fadeIn 0.8s ease-in-out; 
 }
 
 /* Sidebar */
@@ -57,7 +58,7 @@ body {
   color: #fff;
 }
 
-/* Main content */
+
 .main-content {
   margin-left: 240px;
   padding: 1.5rem;
@@ -129,14 +130,20 @@ body {
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background 0.3s;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+}
+.card:hover {
+  background: #e6fff5; /* أخضر فاتح */
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.3);
 }
 .card h3 {
   font-size: 1.6rem;
   color: #1ab394;
 }
 
-/* Table */
+
 .table-section h2 {
   margin-bottom: 1rem;
 }
@@ -198,6 +205,12 @@ body.dark-mode .sidebar .menu li a:hover {
   color: #fff;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .sidebar {
@@ -219,5 +232,9 @@ body.dark-mode .sidebar .menu li a:hover {
   #menu-btn {
     cursor: pointer;
     font-size: 1.3rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
   }
 }
